@@ -1,24 +1,50 @@
 import express, { Response, Request } from 'express';
 import fs from 'fs';
+import getImage from '../utilities/getImage';
+import resizeImage from '../utilities/resizeImage';
 
 const imagesRoutes = express.Router();
 
-imagesRoutes.get('/', (req: Request,res: Response) => {
-    fs.readFile(`src/assets/originalImages/${req.query.fileName}.jpg`, (err, image) => {
-        if(err) {
-            if(err.message.includes('no such file or directory')) {
-                res.send('<div><p>There is no photo with the file name provided in the URL.</p></div>');
-                return;
-            }
-            throw err;
-        }
-        if(!image) {
-            res.send('<div>Something went wrong</div>');    
-        }
+imagesRoutes.get('/', async (req: Request,res: Response) => {
+    const width = parseInt(`${req.query.width}`);
+    const height = parseInt(`${req.query.height}`);
 
-        res.writeHead(200, {'Content-type': 'image/jpg'});
+    if(!width || !height) {
+        res.writeHead(400, {'Content-Type' : 'text/html'});
+        res.end('<div><p>Unvalid width or height.</p></div>');
+        return;
+    }
+
+    if(!fs.existsSync(`src/assets/originalImages/${req.query.fileName}.jpg`)) {
+        res.writeHead(404, {'Content-Type' : 'text/html'});
+        res.end('<div><p>No image with the provided file name.</p></div>');
+        return;
+    }
+
+    if (!fs.existsSync(`src/assets/editedImages/${req.query.fileName}_${width}x${height}.jpg`)){
+        const path = `src/assets/originalImages/${req.query.fileName}.jpg`;
+        const destination = `src/assets/editedImages/${req.query.fileName}_${width}x${height}.jpg`;
+        
+        await resizeImage(path, destination, width, height);
+        const image = await getImage(destination)
+        .catch((err) => {
+            console.log(err.message);
+        })
+
+        res.writeHead(200, {'Content-Type' : 'image/jpg'});
         res.end(image);
-    })
+
+    } else {
+        const path = `src/assets/editedImages/${req.query.fileName}_${width}x${height}.jpg`;
+        const image = await getImage(path)
+        .catch((err) => {
+            console.log(err.message);
+        }) 
+
+        res.writeHead(200, {'Content-Type' : 'image/jpg'});
+        res.end(image);
+
+    }
 })
 
 export default imagesRoutes;
