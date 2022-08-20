@@ -21,6 +21,17 @@ In the project directory, you can run:
 
 ### `yarn test`. Or `yarn jasmine` if you do not need to run.
 
+
+- To run prettier :
+
+### `yarn prettier`.
+
+
+
+- To run eslint :
+
+### `yarn lint`.
+
 ### End points to be called from the broweser
 - http://localhost:3000/images?fileName=WHATEVER_THE_FILENAME&width=WIDTH_YOU_NEED&height=HEIGHT_YOU_NEED
 
