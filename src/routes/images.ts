@@ -25,7 +25,10 @@ imagesRoutes.get('/', async (req: Request,res: Response) => {
         const path = `src/assets/originalImages/${req.query.fileName}.jpg`;
         const destination = `src/assets/editedImages/${req.query.fileName}_${width}x${height}.jpg`;
         
-        await resizeImage(path, destination, width, height);
+        await resizeImage(path, destination, width, height)
+        .catch((err) => {
+            console.log(err.message);
+        })
         const image = await getImage(destination)
         .catch((err) => {
             console.log(err.message);
