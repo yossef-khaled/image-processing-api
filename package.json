@@ -7,7 +7,7 @@
     "dev": "nodemon dist/index.js",
     "watch": "tsc -w",
     "jasmine": "jasmine",
-    "test": "yarn dev && yarn jasmine"
+    "test": "yarn dev & yarn jasmine"
   },
   "author": "Yousef-khaled",
   "license": "ISC",
