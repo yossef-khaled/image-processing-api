@@ -24,7 +24,7 @@ In the project directory, you can run:
 ### End points to be called from the broweser
 - http://localhost:3000/images?fileName=WHATEVER_THE_FILENAME&width=WIDTH_YOU_NEED&height=HEIGHT_YOU_NEED
 
-**NOTE: The images file names are :
+**NOTE: The images file names are :**
 - encenadaport.
 - fjord.
 - icelandwaterfall.
