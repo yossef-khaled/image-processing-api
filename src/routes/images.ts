@@ -2,6 +2,7 @@ import express, { Response, Request } from 'express';
 import fs from 'fs';
 import getImage from '../utilities/getImage';
 import resizeImage from '../utilities/resizeImage';
+import path from 'path';
 
 const imagesRoutes = express.Router();
 
@@ -15,17 +16,19 @@ imagesRoutes.get('/', async (req: Request,res: Response) => {
         return;
     }
 
-    if(!fs.existsSync(`src/assets/originalImages/${req.query.fileName}.jpg`)) {
+//`src/assets/originalImages/${req.query.fileName}.jpg`
+
+    if(!fs.existsSync(path.join(__dirname, `../assets/originalImages/${req.query.fileName}.jpg`))) {
         res.writeHead(404, {'Content-Type' : 'text/html'});
         res.end('<div><p>No image with the provided file name.</p></div>');
         return;
     }
 
-    if (!fs.existsSync(`src/assets/editedImages/${req.query.fileName}_${width}x${height}.jpg`)){
-        const path = `src/assets/originalImages/${req.query.fileName}.jpg`;
-        const destination = `src/assets/editedImages/${req.query.fileName}_${width}x${height}.jpg`;
+    if (!fs.existsSync(path.join(__dirname, `../assets/editedImages/${req.query.fileName}_${width}x${height}.jpg`))){
+        const imagePath = path.join(__dirname, `../assets/originalImages/${req.query.fileName}.jpg`);
+        const destination = path.join(__dirname, `../assets/editedImages/${req.query.fileName}_${width}x${height}.jpg`);
         
-        await resizeImage(path, destination, width, height)
+        await resizeImage(imagePath, destination, width, height)
         .catch((err) => {
             console.log(err.message);
         })
@@ -38,8 +41,8 @@ imagesRoutes.get('/', async (req: Request,res: Response) => {
         res.end(image);
 
     } else {
-        const path = `src/assets/editedImages/${req.query.fileName}_${width}x${height}.jpg`;
-        const image = await getImage(path)
+        const imagePath = path.join(__dirname, `../assets/editedImages/${req.query.fileName}_${width}x${height}.jpg`);
+        const image = await getImage(imagePath)
         .catch((err) => {
             console.log(err.message);
         }) 
