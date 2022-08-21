@@ -8,8 +8,8 @@
     "build": "tsc -w",
     "jasmine": "jasmine",
     "test": "yarn dev & yarn jasmine",
-    "lint": "eslint 'dist/index.ts'",
-    "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write"
+    "lint": "eslint 'dist/index.js'",
+    "prettier": "prettier --config .prettierrc 'src/**/*.js' --write"
   },
   "author": "Yousef-khaled",
   "license": "ISC",
@@ -22,9 +22,7 @@
     "jasmine": "^4.3.0",
     "jasmine-spec-reporter": "^7.0.0",
     "nodemon": "^2.0.19",
-    "sharp": "^0.30.7",
-    "tsconfig": "^7.0.0",
-    "typescript": "*"
+    "sharp": "^0.30.7"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
@@ -41,6 +39,8 @@
     "eslint-plugin-promise": "^6.0.0",
     "lint": "^0.7.0",
     "prettier": "^2.7.1",
-    "supertest": "^6.2.4"
+    "supertest": "^6.2.4",
+    "tsconfig": "^7.0.0",
+    "typescript": "^4.7.4"
   }
 }
