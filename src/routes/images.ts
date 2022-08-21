@@ -7,8 +7,8 @@ import path from 'path';
 const imagesRoutes = express.Router();
 
 imagesRoutes.get('/', async (req: Request,res: Response) => {
-    const width = parseInt(`${req.query.width}`);
-    const height = parseInt(`${req.query.height}`);
+    const width: number = parseInt(`${req.query.width}`);
+    const height: number = parseInt(`${req.query.height}`);
 
     if(!width || !height) {
         res.writeHead(400, {'Content-Type' : 'text/html'});
@@ -23,15 +23,15 @@ imagesRoutes.get('/', async (req: Request,res: Response) => {
     }
 
     if (!fs.existsSync(path.join(__dirname, `../assets/editedImages/${req.query.fileName}_${width}x${height}.jpg`))){
-        const imagePath = path.join(__dirname, `../assets/originalImages/${req.query.fileName}.jpg`);
-        const destination = path.join(__dirname, `../assets/editedImages/${req.query.fileName}_${width}x${height}.jpg`);
+        const imagePath: string = path.join(__dirname, `../assets/originalImages/${req.query.fileName}.jpg`);
+        const destination: string = path.join(__dirname, `../assets/editedImages/${req.query.fileName}_${width}x${height}.jpg`);
         
         await resizeImage(imagePath, destination, width, height)
-        .catch((err) => {
+        .catch((err: NodeJS.ErrnoException) => {
             console.log(err.message);
         })
         const image = await getImage(destination)
-        .catch((err) => {
+        .catch((err: NodeJS.ErrnoException) => {
             console.log(err.message);
         })
 
@@ -39,9 +39,9 @@ imagesRoutes.get('/', async (req: Request,res: Response) => {
         res.end(image);
 
     } else {
-        const imagePath = path.join(__dirname, `../assets/editedImages/${req.query.fileName}_${width}x${height}.jpg`);
-        const image = await getImage(imagePath)
-        .catch((err) => {
+        const imagePath: string = path.join(__dirname, `../assets/editedImages/${req.query.fileName}_${width}x${height}.jpg`);
+        const image: Buffer | void = await getImage(imagePath)
+        .catch((err: NodeJS.ErrnoException) => {
             console.log(err.message);
         }) 
 
