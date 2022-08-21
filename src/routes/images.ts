@@ -16,8 +16,6 @@ imagesRoutes.get('/', async (req: Request,res: Response) => {
         return;
     }
 
-//`src/assets/originalImages/${req.query.fileName}.jpg`
-
     if(!fs.existsSync(path.join(__dirname, `../assets/originalImages/${req.query.fileName}.jpg`))) {
         res.writeHead(404, {'Content-Type' : 'text/html'});
         res.end('<div><p>No image with the provided file name.</p></div>');
