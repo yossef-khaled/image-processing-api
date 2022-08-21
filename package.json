@@ -8,8 +8,8 @@
     "build": "tsc -w",
     "jasmine": "jasmine",
     "test": "yarn dev & yarn jasmine",
-    "lint": "eslint 'dist/index.js'",
-    "prettier": "prettier --config .prettierrc 'src/**/*.js' --write"
+    "lint": "eslint 'src/**/*.ts'",
+    "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "author": "Yousef-khaled",
   "license": "ISC",
@@ -19,8 +19,6 @@
   "homepage": "https://github.com/yossef-khaled/image-processing-api#readme",
   "dependencies": {
     "express": "^4.18.1",
-    "jasmine": "^4.3.0",
-    "jasmine-spec-reporter": "^7.0.0",
     "nodemon": "^2.0.19",
     "sharp": "^0.30.7"
   },
@@ -37,6 +35,8 @@
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.0",
+    "jasmine": "^4.3.0",
+    "jasmine-spec-reporter": "^7.0.0",
     "lint": "^0.7.0",
     "prettier": "^2.7.1",
     "supertest": "^6.2.4",
