@@ -8,7 +8,7 @@
     "build": "tsc -w",
     "jasmine": "jasmine",
     "test": "yarn dev & yarn jasmine",
-    "lint": "eslint 'src/**/*.ts'",
+    "lint": "eslint . --ext .ts",
     "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "author": "Yousef-khaled",
@@ -28,6 +28,7 @@
     "@types/sharp": "^0.30.5",
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.33.1",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard-with-typescript": "^22.0.0",
