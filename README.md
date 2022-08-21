@@ -10,7 +10,7 @@ In the project directory, you can run:
 
 - To build the application :
 
-### `yarn watch`
+### `yarn build`
 
 
 - To run the index.js file :  
