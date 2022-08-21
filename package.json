@@ -8,8 +8,8 @@
     "build": "tsc -w",
     "jasmine": "jasmine",
     "test": "yarn dev & yarn jasmine",
-    "lint": "eslint 'dist/index.js'",
-    "prettier": "prettier --config .prettierrc 'src/**/*.js' --write"
+    "lint": "eslint 'dist/index.ts'",
+    "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "author": "Yousef-khaled",
   "license": "ISC",
@@ -38,6 +38,7 @@
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.0",
+    "lint": "^0.7.0",
     "prettier": "^2.7.1"
   }
 }
