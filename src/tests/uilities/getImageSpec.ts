@@ -11,15 +11,6 @@ describe('getImage function', () => {
         });
     });
 
-    it('Should return an error', async () => {
-        const regex = new RegExp(
-            /^((([a-zA-Z\-0-9])+[no such a file or directory]+[a-zA-Z\-0-9]))$/
-        );
-        getImage('random path').then((value) => {
-            expect(value).toThrowError(regex);
-        });
-    });
-
     it('Should return a buffer 2', async () => {
         getImage(secondTestImagePath).then((value) => {
             expect(fs.existsSync(value)).toBe(true);

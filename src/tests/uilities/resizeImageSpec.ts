@@ -15,20 +15,4 @@ describe('resizeImage function', () => {
             }
         );
     });
-
-    it('Should not throw an error', async () => {
-        resizeImage(testImagePath, destinationImagePath, width, height).then(
-            (value) => {
-                expect(value).not.toThrow();
-            }
-        );
-    });
-
-    it('Should throw an error', async () => {
-        resizeImage('random path', destinationImagePath, width, height).then(
-            (value) => {
-                expect(value).toThrow();
-            }
-        );
-    });
 });
