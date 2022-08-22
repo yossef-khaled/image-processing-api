@@ -10,6 +10,7 @@
     "jasmine": "jasmine",
     "test": "yarn build & yarn jasmine",
     "lint": "eslint  src/**/*.ts",
+    "lintJS": "eslint  dist/**/*.js",
     "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "author": "Yousef-khaled",
