@@ -18,7 +18,7 @@ async function resizeImage(
         .catch((err) => {
             reject(err);
         });
-    })
+    });
 }
 
 export default resizeImage;
