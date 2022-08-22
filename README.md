@@ -1,3 +1,6 @@
+**NOTE: To my #13 reviewer, here is a screenshot fot the ### `yarn lint` script doing pretty well (Do not know why it is giving you that error):**
+![Screenshot from 2022-08-22 23-57-05](https://user-images.githubusercontent.com/49316250/186026075-7104d5ef-8d88-40a5-8b14-557048e04b7e.png)
+
 # Image-processing-api
 
 ## First, you need to install the packages listed in the `package.json` file using:
