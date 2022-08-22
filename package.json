@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon dist/index.js",
-    "build": "tsc -w",
+    "watch": "tsc -w",
+    "build": "npx tsc",
     "jasmine": "jasmine",
     "test": "yarn build & yarn jasmine",
     "lint": "eslint  src/**/*.ts",
