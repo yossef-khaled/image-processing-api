@@ -5,17 +5,20 @@ async function resizeImage(
     destination: string,
     width: number,
     height: number
-): Promise<void> {
-    await sharp(path)
+): Promise<object> {
+    return new Promise( (resolve, reject) => {
+        sharp(path)
         .resize(width, height)
         .toFile(destination)
 
         .then((data: object) => {
-            console.log("return from sharp function :", data);
+            console.log(data);
+            resolve(data);
         })
         .catch((err) => {
-            throw err;
+            reject(err);
         });
+    })
 }
 
 export default resizeImage;
