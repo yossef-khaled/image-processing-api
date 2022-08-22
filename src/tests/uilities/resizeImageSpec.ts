@@ -12,26 +12,29 @@ type Image = {
     height: number;
     channels: number;
     premultiplied: boolean;
-    size: number;
-}
+};
 
 describe('resizeImage function', () => {
-    it('Should not return any thing with a file created at the destination image path', async () => {
-        resizeImage(testImagePath, destinationImagePath, width, height).then(
-            (value: object) => {
-                const expected: Image = {
-                    format: 'jpeg',
-                    width,
-                    height,
-                    channels: 3,
-                    premultiplied: false,
-                    size: 60354
-                }
-                expect(value).toBe(expected);
-            }
-        )
-        .catch((err: NodeJS.ErrnoException) => {
-            expect(err.message).toContain('illegal operation on a directory');
-        })
+    it('Should return a file created at the destination image path', async () => {
+        try {
+            const value = await resizeImage(
+                testImagePath,
+                destinationImagePath,
+                width,
+                height
+            );
+
+            const expected: Image = {
+                format: 'jpeg',
+                width,
+                height,
+                channels: 3,
+                premultiplied: false,
+            };
+
+            expect(value).toEqual(expected);
+        } catch (err) {
+            throw new Error(err.message);
+        }
     });
 });
