@@ -1,7 +1,7 @@
 import fs from "fs";
 
 function getImage(path: string): Promise<Buffer> {
-    return new Promise( (resolve, reject) => {
+    return new Promise((resolve, reject) => {
         fs.readFile(
             path,
             (err: NodeJS.ErrnoException | null, resizedImage: Buffer) => {
