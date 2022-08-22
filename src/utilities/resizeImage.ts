@@ -1,4 +1,4 @@
-import sharp from 'sharp';
+import sharp from "sharp";
 
 async function resizeImage(
     path: string,
@@ -11,7 +11,7 @@ async function resizeImage(
         .toFile(destination)
 
         .then((data: object) => {
-            console.log('return from sharp function :', data);
+            console.log("return from sharp function :", data);
         })
         .catch((err) => {
             throw err;
