@@ -12,29 +12,29 @@
 ### Available Scripts
 In the project directory, you can run:
 
-## - To build the application :
+### - To build the application :
 
-# `yarn build`
-
-
-## - To run the index.js file :  
-
-# `yarn dev`
+ `yarn build`
 
 
-## - To run the test units :
+### - To run the index.js file :  
 
-# `yarn test`. Or `yarn jasmine` if you do not need to run.
-
-
-## - To run prettier :
-
-# `yarn prettier`.
+`yarn dev`
 
 
-## - To run eslint :
+### - To run the test units :
 
-# `yarn lint`.
+`yarn test`. Or `yarn jasmine` if you do not need to run.
+
+
+### - To run prettier :
+
+`yarn prettier`.
+
+
+### - To run eslint :
+
+`yarn lint`.
 
 ### End points to be called from the broweser
 - http://localhost:3000/images?fileName=WHATEVER_THE_FILENAME&width=WIDTH_YOU_NEED&height=HEIGHT_YOU_NEED
